@@ -207,7 +207,7 @@ my_realloc (p, n)
 #endif /* __GNU_LIBRARY__ */
 
 
-#if !defined __alloca && !defined __GNU_LIBRARY__
+#if !defined __alloca && defined __GNU_LIBRARY__
 
 # ifdef	__GNUC__
 #  undef alloca
@@ -230,7 +230,7 @@ extern char *alloca ();
 
 #endif
 
-#ifndef __GNU_LIBRARY__
+#ifdef __GNU_LIBRARY__
 # define __stat stat
 # ifdef STAT_MACROS_BROKEN
 #  undef S_ISDIR
@@ -261,7 +261,7 @@ extern char *alloca ();
 
 /* Some system header files erroneously define these.
    We want our own definitions from <fnmatch.h> to take precedence.  */
-#ifndef __GNU_LIBRARY__
+#ifdef __GNU_LIBRARY__
 # undef	FNM_PATHNAME
 # undef	FNM_NOESCAPE
 # undef	FNM_PERIOD
@@ -270,7 +270,7 @@ extern char *alloca ();
 
 /* Some system header files erroneously define these.
    We want our own definitions from <glob.h> to take precedence.  */
-#ifndef __GNU_LIBRARY__
+#ifdef __GNU_LIBRARY__
 # undef	GLOB_ERR
 # undef	GLOB_MARK
 # undef	GLOB_NOSORT
